@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css_files %}
+<link rel="stylesheet" href="{% static "challenges/challenges.css" %}">
+{% comment %} <link rel="stylesheet" href="{% static "challenges/includes/header.css" %}"> {% endcomment %}
+<link rel="stylesheet" href="{% static "challenges/header.css" %}">
+{% endblock %}
+{% block page_title %}
+    All Challenges
+{% endblock %}
+
+{% block content %}
+{% include "./includes/header.html" with active_page="index" %}
+    <ul>
+    {% for month in month_d %}
+        <li><a href="{% url 'month-challenge' month %}">{{ month|title }}</a></li>
+    {% endfor %}
+    </ul>
+{% endblock %}
+
+
+{% comment %} {% comment %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Challenges</title> {% endcomment %}
+    {% comment %} {% block page_title %}
+    All Challenges
+{% endblock %} {% endcomment %}
+
+{% comment %} </head>
+<body> {% endcomment %}
+
+{% comment %} {% block content %}
+    <ul>
+    {% for month in month_d %}
+        <li><a href="{% url "month-challenge" month %}">{{ month|title }}</a></li>
+    {% endfor %}
+    </ul>
+{% endblock%}     {% endcomment %}
+{% comment %} </body>
+
+</html> {% endcomment %}
