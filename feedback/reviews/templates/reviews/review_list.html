@@ -1,0 +1,17 @@
+{% extends "reviews/base.html" %}
+
+
+    {% block title %}All Review{% endblock %}
+    
+
+{% block content %}
+    <ul>
+    {% for review in object_list %}
+    {% comment %}  {% for review in reviews%} is changes to object list becausew we are now using listview in place of templateview in views.py {% endcomment %}
+    {% comment %} the aabove reviews in the for loop is the reviews we extracted in viws.py by the model Review {% endcomment %}
+    {% comment %} we are looping through each model  {% endcomment %}
+    <li>{{ review.user_name }} (Rating: {{ review.rating }})</li>
+    {% endfor %}
+    </ul>
+
+{% endblock %}

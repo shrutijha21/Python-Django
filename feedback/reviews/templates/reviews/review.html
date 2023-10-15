@@ -1,15 +1,10 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-    <title>Your Review</title>
-    <link rel="stylesheet" href="{% static 'reviews/styles.css' %}">
+{% extends "reviews/base.html" %}
 
-  </head>
-  <body>
+
+    {% block title %}Your Review{% endblock %}
+    
+
+{% block content %}
     {% comment %} the default method is GET but i want post then i have to use form method="POST" {% endcomment %}
     {% comment %} i can change the url on which this post can be sent using action="any url" {% endcomment %}
 	<form action="/" method="POST">
@@ -25,5 +20,4 @@
       <button type="submit">Send</button>
       {% comment %} i can use type="button" but then it will not do anything to the url once i click on send button so i used "submit" as without is also it was by default submit only {% endcomment %}
     </form>
-  </body>
-</html>
+{% endblock %}

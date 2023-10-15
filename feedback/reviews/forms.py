@@ -13,7 +13,7 @@ from .models import Review
 
 class ReviewForm(forms.ModelForm):#it is also used in template and django will automatically connect it to a model and take its input as field here
     class Meta:
-        model = Review#connects review form to review model
+        model = Review #connects review form to review model
         fields= "__all__" #to include all the fields from model
         #if only selected fields are required then fields= ['user_name','review_text','rating']
         #exclude=[all the field that you dont want to include]-- alternative approach used in case included data>excluded data
@@ -23,7 +23,7 @@ class ReviewForm(forms.ModelForm):#it is also used in template and django will a
             "rating": "Your Rating",
         }
         error_messages={
-            "user_name":{      
+            "user_name":{     
                 "required":"Your name must not be empty!",
                 "max_length":"please enter a shorter name!"
             }

@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'profiles',
     'reviews',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -124,3 +125,6 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_URL = '/static/'
+
+MEDIA_ROOT= BASE_DIR /"uploads"#tells the path where all the files are stored because of filefield
+Media_URL= "/user-media/"

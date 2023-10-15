@@ -1,0 +1,13 @@
+{% extends "reviews/base.html" %}
+
+
+{% block title %}Review Detail{% endblock %}
+    
+
+{% block content %}
+   <h1>{{ review.user_name }}</h1>
+   {% comment %} i am using detail view here and django is automatically turnng the model name i.e.. Review here in all lowercase i.e. review.. i can use object also in pace of it {% endcomment %}
+   <p>Rating: {{ review.rating }}</p>
+   <p>{{ review.review_text }}</p>
+
+{% endblock %}
