@@ -1,0 +1,101 @@
+we create new entity in model class like in java
+then we create steps to manipulate the data in the db in migrations
+like when we work on our models when we add or update in models.py file we need to make sure that we create migrations
+for django to execute and it helps to create instructions for django on how to update
+and also run those migrations
+
+2 steps to create the migration:
+1.python manage.py makemigrations
+=creates a file 0001_=there we create the steps which is not initially created
+so we have to manipulate the data here
+
+2. python manage.py migrate- goes through all the migration files that have not been executed yet
+
+
+
+
+inserting data:
+python manage.py shell-helps to work with databases using the django based python interpreter created by this command
+
+
+x=book()
+x.save()--to save data
+
+
+to fetch
+
+Book.objects.all()----objects is predefined by django
+Out[7]: <QuerySet [<Book: Book object (1)>, <Book: Book object (2)>]>
+
+
+now if we create any new model and db previously doesnt have those field and we run it we will get a promt-vid-77
+gives 2 options-1.. provide one deafult value
+2- let it be null
+
+
+
+
+
+we can either use default keyword inside the parameter of any field to set default value.. or we can use null=True to tell the interpreter to keep the value as null if not found
+basically not empty but null
+
+
+
+
+steps
+1.python manage.py shell
+2.from book_outlet.models import Book  
+3.to get 2nd book
+ Book.objects.all()[1]      
+Out[2]: <Book: lord of the rings!(4)>
+
+4. to access a specific detals like author of 2nd book:
+Book.objects.all()[1].author
+
+
+
+to update data
+:
+.save() does it
+
+like harrypotter.author="j.k. rowling"
+harrypotter.save()
+
+
+deleting data:
+1. harry_potter= Book.objects.all()[0]
+2.harry_potter.delete()
+
+
+
+
+
+
+instead of creating the data with so many process use .create()
+like= Book.objects.create(title="...",r..,a,,)
+
+
+
+
+now we dont have to see data with so many index no.:
+we can use.get()
+book.objects.get(id=1), we can pass title also and rating also like any one is fine
+but it hould match corectlyy
+
+.filter(rating=5):filters out db and shows only data that has rating 5
+
+
+.filter(rating_lt=3, title__contains="potter")---- title mai potter hua to aa jayega aur rating jitne lower than 3 hai woh dikhenge
+
+
+
+
+## to write query:
+upto upper we had all these conditions that were adding as add operations:
+now if we have to do or operation then:
+
+===>We have to import Q class:from django.db.models import Q
+Book.objects.filter(Q(rating__lt=3)| Q(is_bestselling=True))
+
+
+WE CAN ADD AND CONDITION WITH OR ====>Book.objects.filter(Q(rating__lt=3)| Q(is_bestselling=True)),
